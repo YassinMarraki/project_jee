@@ -1,0 +1,60 @@
+body {
+	overflow-x: hidden;
+}
+.sep{
+	display: inline-block;
+	border-left: #d4d4d4 outset 2px ;
+	height: 60px;
+	/* border-radius: 10px; */
+	/*vertical-align: 20px;*/
+}
+footer {
+	display: flex;
+	margin-left: 5px;
+}
+.des {
+	font-style: normal;
+	color: #b4b4b4;
+	max-width: 400px;
+	padding: 20px 0px 0px 140px;
+}
+.logof {
+	/*border: 1px solid blue;*/
+	display: inline-block;
+	padding: 35px 150px 0px 75px;
+}
+
+.ful{
+	margin-top: 30px;
+	list-style-type: none;
+}
+.ful li::before {
+ 	content: "\200B";
+}
+.ful li, .ful h5 {
+	margin: 0px 0px 20px 30px;
+}
+.bres {
+	padding: 31px 50px 0px 170px;
+}
+
+.gres {
+	margin-left:20px;
+}
+.gres img {
+	display: inline-block;
+	margin: 0px 0px 15px 20px;
+}
+.cop {
+	font-size: 14px;
+	color: #b4b4b4;
+	text-align: center;
+}
+.hr {
+	width: 85%;
+}
+
+/*.act:hover {
+	color: #01aeef;
+	border-bottom: #01aeef solid 3px ;
+}*/

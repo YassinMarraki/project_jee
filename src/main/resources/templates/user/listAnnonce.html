@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+<meta charset="ISO-8859-1">
+<title>Mes annonces</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet"
+	th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css}"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{../css/style_user.css}">
+<style type="text/css">
+</style>
+</head>
+<body>
+	<header class="header">
+		<nav class="navbar navbar-expand-lg navbar-light  bg-light">
+			<a class="navbar-brand" href="/"> <img src="/ressource/logo.png"
+				class="px-3">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link "
+						href="/utilisateur/ajoute-annonce">Créer une Annonce</a></li>
+					<li class="nav-item active"><a class="nav-link"
+						href="/utilisateur/liste-annonce">Mes Annonces <span
+							class="sr-only">(current)</span></a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/utilisateur/mesinfos">Mes Informations <span
+							class="sr-only">(current)</span></a></li>
+
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a
+						class="btn btn-outline-info my-2 my-sm-0" type="submit"
+						href="/deconnecter">Deconnexion</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+
+
+
+
+	<div class="alert alert-danger" th:text="${msgSupprimer}"></div>
+	<div class="alert alert-info" th:text="${msgMdodifer}"></div>
+	<div class="alert alert-primary" th:text="${msgAjouter}"></div>
+
+
+
+	<div class="container">
+		<br>
+		<div class="container">
+			<h3 class="display-4 pl-5 ml-5">&emsp;&emsp;&emsp;&emsp;&emsp;Mes
+				Annonces</h3>
+		</div>
+		<div class="row" th:each="annonce : ${listAnnonce}">
+
+			<div class="px-5 mx-5 col-1"></div>
+			<div class="card-group col-8">
+				<div class="card">
+					<div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
+					<img class="card-img-top"
+						th:src="*{'data:image/png;base64,'+annonce.base64Image}"
+						alt="Card image cap" width="250" height="350">
+					<h5 class="card-title text-primary"
+						th:text="${annonce.designation}"></h5>
+					<h5 class="card-title " th:text="${annonce.categorie}">
+						<c:out value="${liste.categorie}" />
+					</h5>
+					<h5 class="card-title card-price" th:text="${annonce.prix+' DH'}">
+					</h5>
+					<p class="card-text" th:text="${annonce.description}">
+						<c:out value="${liste.description}" />
+					</p>
+					<p class="card-text">
+						<small class="text-muted"><b
+							th:text="${annonce.date_annonce}"> <svg
+									xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+									fill="currentColor" class="bi bi-calendar-date-fill text-muted"
+									viewBox="0 0 16 16">
+       <path
+										d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zm5.402 9.746c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z" />
+     <path
+										d="M16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-6.664-1.21c-1.11 0-1.656-.767-1.703-1.407h.683c.043.37.387.82 1.051.82.844 0 1.301-.848 1.305-2.164h-.027c-.153.414-.637.79-1.383.79-.852 0-1.676-.61-1.676-1.77 0-1.137.871-1.809 1.797-1.809 1.172 0 1.953.734 1.953 2.668 0 1.805-.742 2.871-2 2.871zm-2.89-5.435v5.332H5.77V8.079h-.012c-.29.156-.883.52-1.258.777V8.16a12.6 12.6 0 0 1 1.313-.805h.632z" />
+      </svg> <c:out value="${liste.date_annonce}" />
+						</b> </small>
+					</p>
+					<h5 class="ml-auto">
+						<button class="btn btn-primary mr-3" type="button">
+							<a style="color: white;"
+								th:href="@{'/utilisateur/modifie-annonce/' + ${annonce.annonce_id}}">Modifier
+							</a>
+						</button>
+
+						<button type="button" class="btn btn-danger mr-5">
+							<a style="color: white;" id="suprimmer"
+								th:href="@{'/utilisateur/liste-annonce/supprimmer/' + ${annonce.annonce_id}}">Supprimer
+							</a>
+						</button>
+						<span class="px-5 mx-5"></span>
+					</h5>
+					<br>
+				</div>
+			</div>
+
+		</div>
+		<br>
+		<br>
+		<br>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+</html>
