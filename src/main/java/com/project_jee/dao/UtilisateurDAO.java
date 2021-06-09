@@ -12,9 +12,6 @@ public interface UtilisateurDAO extends JpaRepository<Utilisateur, Long> {
 
 	
 	@Query( "SELECT S FROM Utilisateur S WHERE S.id = ?1 ")
-	Utilisateur findUser(long  id);
-	
-	@Query( "SELECT S FROM Utilisateur S WHERE S.id = ?1 ")
-	Utilisateur findById(long id);
+	Utilisateur findById(int id);
 
 }
