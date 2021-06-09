@@ -35,8 +35,6 @@ public interface AnnonceDAO   extends JpaRepository<Annonce,Long>
 	@Query( "SELECT a FROM Annonce a WHERE  a.etat='e'")
 	List<Annonce>   AnnoncesATraiter();
 	
-	@Query( "SELECT a FROM Annonce a WHERE  a.etat='v' AND a.categorie=?1")
-	List<Annonce>   annoncesCat(String s);
 	
 	@Query( "SELECT a FROM Annonce a WHERE  a.annonce_id=?1")
 	Annonce   findByAnnonce_Id(long id);
