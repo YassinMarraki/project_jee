@@ -15,7 +15,7 @@ public class Utilisateur {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id ;
+	private long id ;
 	
 	private String nom;
 	private String prenom;
@@ -36,7 +36,7 @@ public class Utilisateur {
 	
 	
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 	public void setId(int id) {

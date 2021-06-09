@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.project_jee.modele.Utilisateur;
 
 @Repository
-public interface UtilisateurRepository extends CrudRepository<Utilisateur, Integer> {
+public interface UtilisateurRepository extends CrudRepository<Utilisateur, Long> {
 	
 	
 	

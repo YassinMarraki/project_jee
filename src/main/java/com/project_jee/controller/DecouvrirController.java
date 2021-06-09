@@ -46,10 +46,10 @@ public class DecouvrirController {
 	
 
 	@GetMapping("/plusdinfos/{id}")
-	String infosAnnonceur(@PathVariable(name = "id") int id, final  Model model) {
+	String infosAnnonceur(@PathVariable(name = "id") long id, final  Model model) {
 		System.out.print("\nLe id : "+id);
-		Optional<Utilisateur> u = uDAO.findById(Integer.valueOf(id));
-		model.addAttribute("a", u.get());
+		Utilisateur u = uDAO.findById(id);
+		model.addAttribute("a", u);
 		return "infosAnnonceur";
 	}
 }

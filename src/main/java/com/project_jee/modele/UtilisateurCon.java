@@ -12,7 +12,7 @@ public class UtilisateurCon extends Utilisateur implements UserDetails {
         setNom(user.getNom());
         setPrenom(user.getPrenom());
         setEmail(user.getEmail());
-        setId(user.getId());
+        setId((int) user.getId());
         setDate_naissance(user.getDate_naissance());
         setDate_inscription(user.getDate_inscription());
         setAdresse(user.getAdresse());
