@@ -17,7 +17,7 @@ import javax.persistence.Table;
 public class Utilisateur {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long  id;
+	private int id;
 	private String nom;
 	private String prenom;
 	private String email;
@@ -33,7 +33,7 @@ public class Utilisateur {
     @JoinColumn(name="id")
 	private List<Annonce> annonces=new ArrayList<>();
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
