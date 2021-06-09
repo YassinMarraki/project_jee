@@ -1,0 +1,89 @@
+<div th:replace="haut.html (css='styleins.css')"/>
+
+
+
+
+
+
+<section class="sect">
+      <form th:action="@{/inscription}" method="post" class="form">
+        <label class="titreins">INSCRIVEZ VOUS</label>
+        
+        <!--  <%@ page import="java.util.ArrayList" %>
+        <%if (! (request.getAttribute("erreur") == null) ) {
+        	
+			out.print("<section class=\"validation-summary-errors\"><ul>");
+			
+			for(String x : (ArrayList<String>)request.getAttribute("erreur")) {
+				out.print("<li>" + x + "</li>");
+			}
+          	out.print("</ul></section>");
+        	
+        	
+        	
+        	
+        	}%>
+        -->
+        
+        <section class="validation-summary-errors"  th:if="${erreur}"><ul>
+        	<li th:each="er: ${erreur}" th:text="${er}"></li>
+        </ul></section>
+        
+        <section class="sec0">
+          <input type="text"  name="prenom" placeholder="Prénom" class="nom ${(empty param.prenom) && !(empty erreur) ? 'input-validation-error' : ''}" >
+          <input type="text"  name="nom" placeholder="Nom" class="nom ${(empty param.nom) && !(empty erreur) ? 'input-validation-error' : ''}">
+        </section>
+
+        <section class="sec1">
+          
+          <input type="email" name="email" placeholder="E-mail" class="sec1e ${(empty param.mail) && !(empty erreur) ? 'input-validation-error' : ''}">
+          <input type="email" name="conf_email" placeholder="Confirmer votre email" class="sec1e ${(empty param.Cmail) && !(empty erreur) ? 'input-validation-error' : ''}">
+          <input type="password" name="mot_de_passe" placeholder="Mot de passe" class="sec1e ${(empty param.pass) && !(empty erreur) ? 'input-validation-error' : ''}">
+          <input type="password" name="conf_mot_de_passe"  placeholder="Confirmer votre mot de passe" class="sec1e ${(empty param.rpass) && !(empty erreur) ? 'input-validation-error' : ''}">
+          <input type="text" name="numero_telephone" placeholder="N° de téléphone" class="sec1e ${(empty param.tel) && !(empty erreur) ? 'input-validation-error' : ''}">
+          <section class="flex">
+            <section>
+              <label for="naissance"><strong>Date de naissance</strong></label>
+            <input type="date" name="date_naissance" min="1900-01-01" max="2020-12-31" value="${param.naissance}" class="${(empty param.naissance) && !(empty erreur) ? 'input-validation-error' : ''}">
+            </section>
+            <section class="genre">
+              <label class="genret"><strong>Genre :</strong></label>
+              <span class="pr-2"></span>  
+              <input type="radio" id="garcon" name="genre" value="h" class="pub  ${(empty param.genre) && !(empty erreur) ? 'input-validation-error' : ''}">
+              <label for="garcon" class="pubg">Homme</label>
+              <input type="radio" id="fille" name="genre" value="f" class="pub  ${(empty param.genre) && !(empty erreur) ? 'input-validation-error' : ''}">
+              <label for="fille" class="pubg">Femme</label>
+            </section>
+          </section>
+
+        <label for="region"><strong>Région</strong></label>
+          <select name="region" class="sec1e">
+            <option value="Tanger-Tétouan-Al Hoceima">Tanger-Tétouan-Al Hoceima</option>
+            <option value="l'Oriental">L'Oriental</option>
+            <option value="Fés-Meknès">Fès-Meknès</option>
+            <option value="Rabat-Salé-Kénitra">Rabat-Salé-Kénitra</option>
+            <option value="Béni Mellal- Kh�nifra">Béni Mellal-Khénifra</option>
+            <option value="Casablanca-Settat">Casablanca-Settat</option>
+            <option value="Marrakech-Safi">Marrakech-Safi</option>
+            <option value="Drâa-Tafilalet">Drâa-Tafilalet</option>
+            <option value="Souss-Massa">Souss-Massa</option>
+            <option value="Guelmim-Oued Noun">Guelmim-Oued Noun</option>
+            <option value="Laâyoune-Sakia El Hamra">Laâyoune-Sakia El Hamra</option>
+            <option value="Dakhla-Oued Ed Dahab">Dakhla-Oued Ed Dahab</option>
+          </select>
+
+          <label for="adresse"><strong>Adresse</strong></label>
+          <textarea id="adresse" name="adresse" cols="56" rows="3" class="${(empty param.adresse) && !(empty erreur) ? 'input-validation-error' : ''}"></textarea>
+          <label for="ville"><strong>Ville</strong></label>
+          <input type="text" name="ville" class="sec1e ${(empty param.ville) && !(empty erreur) ? 'input-validation-error' : ''}">
+
+        </section>
+        <input type="checkbox" id="regle" name="regle" class="check">
+        <a class="regle">J'accepte les règles générales d'utilisation.</a>
+        <button type="submit" class="insbutton">CRÉER MON COMPTE</button>
+        <p class="pl">Vous êtes déjà inscrit ? <a class="regle" href="/connecter">Se Connecter.</a></p>
+    </form>
+    </section>
+
+
+<div th:replace="bas.html"/>

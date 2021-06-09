@@ -1,0 +1,90 @@
+@font-face {
+    font-family: 'calibril';
+    src: url('calibril.ttf');
+}
+.backlog {
+	display: inline-block;
+	margin: 0px 180px 0px 70px;
+}
+.formcon {
+	display: inline-block;
+	margin: 0px 50px 0px 70px;
+}
+.log {
+	display: block;
+	font-size: 15px;
+	border-radius: 3px;
+	border: 1px solid #b4b4b4;
+	padding: 10px;
+	margin-bottom: 20px;
+	width: 300px;
+}
+.log:focus {
+	border: 1px solid #01aeef;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px #01aeef;
+}
+.logbut {
+	font-family: calibril;
+	display: block;
+	margin: 20px 60px;
+	width: 200px;
+	padding: 10px;
+	color: #ffffff;
+	background-color: #01aeef;
+	border: none;
+	font-size: 20px;
+	border-radius: 4px;
+}
+.logbut:active,hover {
+	box-shadow: 0px 0px 7px #01aeef;
+}
+.logbut:focus {
+	outline: none;
+}
+.res {
+	color: #0199d1;
+}
+.tt {
+	font-size: 15px;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+.input-validation-error {
+	display: block;
+	border: 2px solid #f00;
+	background-color: #fee;
+}
+
+input[type="checkbox"].input-validation-error {
+	outline: 2px solid #f00;
+}
+
+input[type="radio"].input-validation-error {
+	outline: 2px solid #f00;
+}
+
+.validation-summary-errors {
+	color: #f00;
+	font-size: 13px;
+	font-weight: bold;
+	/*font-weight: bold;*/
+	margin: 0px 5px 20px;
+	border: 1px solid #f00;
+	background-color: #fee;
+	border-radius: 5px;
+	padding-right: 40px;
+	width: 290px;
+}
+.validation-summary-errors ul {
+	list-style-type: none;
+	line-height: 150%;
+}

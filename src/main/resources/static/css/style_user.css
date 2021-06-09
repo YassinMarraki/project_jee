@@ -1,0 +1,212 @@
+@CHARSET "ISO-8859-1";
+
+.button {
+	font-family: 'Open Sans';
+	font-size: 16px;
+	font-weight: 400;
+	display: inline-block;
+	color: #FFF;
+	border-radius: .25em;
+	text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.4);
+}
+
+.btn-outline-secondary {
+	border: 2px solid #00ff40;
+}
+
+.primary {
+	line-height: 40px;
+	transition: ease-in-out .2s;
+	padding: 0 16px;
+}
+
+.primary:hover, .condensed:hover, .touch:hover {
+	transform: scale(1.02);
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.20), inset 0 0 0 99999px
+		rgba(0, 0, 0, 0.2);
+}
+
+.condensed {
+	transition: ease-in-out .2s;
+	line-height: 24px;
+	padding: 0 8px;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.touch {
+	transition: ease-in-out .2s;
+	line-height: 40px;
+	width: 40px;
+	padding: 0px;
+	text-align: center;
+}
+
+.inlineIcon {
+	
+}
+
+.edit:before, .save:before, .new:before, .cancel:before, .delete:before
+	{
+	font-family: FontAwesome;
+	display: inline-block;
+	font-size: 1rem;
+	padding-right: 12px;
+	background: none;
+	color: #FFF;
+}
+
+.navbar {
+	margin-top: 20px;
+	margin-right: 25px;
+	margin-left: 25px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	border: 1px solid #00ffff;
+}
+
+.active>a {
+	background-color: #c5f3ff; /*EDIT THIS FOR COLOUR */
+}
+
+body {
+	background-repeat: no-repeat;
+	background-position: right top;
+	background-attachment: scroll;
+}
+
+#titre {
+	margin-top: 15px;
+	margin-right: 25px;
+	margin-left: 25px;
+}
+
+.navbar-nav>li {
+	padding-left: 30px;
+	padding-right: 32px;
+}
+
+.formAnnonce {
+	margin-top: 15px;
+	margin-right: 5px;
+	margin-left: 30px;
+	/*position:fixed;*/
+	top: 10%;
+	left: 30%;
+	width: 1400px;
+}
+
+.form-control {
+	width: 30%;
+}
+
+#DesignationVide {
+	color: red;
+}
+
+p {
+	margin: 25px 50px;
+}
+
+h1 {
+	border: 2px solid cyan;
+}
+
+.card-title {
+	padding: -10px -10px -10px -10px;
+	margin: 5px 25px;
+	font-weight: 440;
+	font-size: 22px;
+	line-height: 38px;
+	min-height: 3px;
+}
+
+.card-text {
+	padding: -10px -10px -10px -10px;
+}
+
+.form-control {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	border: 2px solid #00ffff;
+}
+
+.text-primary {
+	padding: 5px 25px 5px 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	border: 1px solid #00ffff;
+	min-height: 3px;
+}
+
+.text-muted {
+	font-size: 20px;
+}
+
+#suprimmer {
+	color: #c5f3ff;
+}
+
+.alert:empty {
+	display: none;
+}
+
+.alert {
+	font-size: 20px;
+	margin-top: 15px;
+	margin-right: 50%;
+	margin-left: 25px;
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	width: 333px;
+	margin: 20px 0px;
+	border: 1px solid #00ffff;
+}
+
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-price {
+	display: inline-block;
+	width: 130px;
+	height: 38px;
+	background-color: #6ab070;
+	-webkit-border-radius: 3px 4px 4px 3px;
+	-moz-border-radius: 3px 4px 4px 3px;
+	border-radius: 3px 4px 4px 3px;
+	border-left: 1px solid #6ab070;
+	/* This makes room for the triangle */
+	margin-left: 19px;
+	position: relative;
+	color: white;
+	font-weight: 300;
+	font-size: 22px;
+	line-height: 38px;
+	padding: 0 10px 0 10px;
+}
+
+/* Makes the triangle */
+.card-price:before {
+	content: "";
+	position: absolute;
+	display: block;
+	left: -19px;
+	width: 0;
+	height: 0;
+	border-top: 19px solid transparent;
+	border-bottom: 19px solid transparent;
+	border-right: 19px solid #6ab070;
+}
+
+/* Makes the circle */
+.card-price:after {
+	content: "";
+	background-color: white;
+	border-radius: 50%;
+	width: 4px;
+	height: 4px;
+	display: block;
+	position: absolute;
+	left: -9px;
+	top: 17px;
+}

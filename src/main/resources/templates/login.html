@@ -1,0 +1,55 @@
+<div th:replace="haut.html (css='stylelog.css')"/>
+
+
+  <section class="container">
+    <section class="row">
+      <img src="ressource/backlog.png" class="backlog mt-5 mb-4 mr-4 ml-1 py-4 pb-5 pr-5" height="447">
+      <div class="pl-4 ml-2"></div>
+        
+        <!--  <%@ page import="java.util.ArrayList" %>
+        <%if (! (request.getAttribute("erreur") == null) ) {
+
+			out.print("<form action=\"connecter\" method=\"post\" class=\"formcon mt-2 mb-5 ml-5 pt-5 pl-5 pr-0 mr-0\">"+
+			        "<h4 class=\"mt-1\">&ensp;Connexion � mon compte</h4>" +
+			        "<br><section class=\"validation-summary-errors  pt-3\"><ul>");
+			
+			for(String x : (ArrayList<String>)request.getAttribute("erreur")) {
+				out.print("<li>" + x + "</li>");
+			}
+          	out.print("</ul></section>");
+        }
+        	
+          else
+        	  out.print("<form action=\"connecter\" method=\"post\" class=\"formcon my-5 ml-5 pt-5 pl-5 pr-0 mr-0\">"+
+  			        "<h4 class=\"mt-1\">&ensp;Connexion à mon compte</h4>" +
+  			        "<br>");
+        	
+        	%> -->
+        	
+        	
+        
+        	
+        	
+        	<form action="connecter" method="post" class="formcon my-5 ml-5 pt-5 pl-5 pr-0 mr-0">
+        	<h4 class="mt-1">&ensp;Connexion à mon compte</h4>
+        	<br>
+        	
+        	<section class="validation-summary-errors pt-3"  th:if="${erreur}"><ul>
+        	<li th:text="${erreur}"></li>
+        </ul></section>
+        
+        
+        
+        <input type="email" id="mail" name="email" placeholder="Adresse électronique" class="log">
+        <input type="password" id="password" name="mot_de_passe" placeholder="Mot de passe" class="log">
+        <!--  <input type="checkbox" id="rester" name="rester" class="check">
+        <label for="rester" class="res">&nbsp;Rester connecté.</label>-->
+        <button type="submit" class="logbut">Se Connecter</button>
+        <p class="tt">Vous n'avez pas encore de compte ? <a class="res" href="/inscription">Créez-en un !</a></p>
+        <!--<p class="tt">Mot de passe oublié ? <a class="res">Créez-en un autre !</a></p>-->
+      </form>
+    </section>
+   </section>
+
+
+<div th:replace="bas.html"/>
