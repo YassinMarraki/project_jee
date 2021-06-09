@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project_jee.dao.AnnonceDAO;
+import com.project_jee.dao.AnnonceService;
 import com.project_jee.dao.UtilisateurDAO;
 import com.project_jee.modele.Annonce;
 import com.project_jee.modele.ShowToAdminAnnonce;
@@ -25,11 +26,13 @@ public class AnnoncesAdminControler {
 	UtilisateurDAO uDAO;
 	@Autowired
 	AnnonceDAO anDAO;
+	@Autowired
+	AnnonceService anserv;
 
 	@RequestMapping("/admin")
 	String adminHome(Model model) {
-
-		model.addAttribute("liste", afficheAdminAnnonce("a traiter"));
+        
+		model.addAttribute("liste", anserv.afficheAdminAnnonce("a traiter"));
 
 		return "/admin/adminHome";
 	}
@@ -58,7 +61,7 @@ public class AnnoncesAdminControler {
 
 	@RequestMapping("/admin/annoncesValide")
 	String adminAnnoncesValide(Model model) {
-		model.addAttribute("liste", afficheAdminAnnonce("valide"));
+		model.addAttribute("liste", anserv.afficheAdminAnnonce("valide"));
 
 		return "admin/annoncesValide";
 	}
@@ -66,7 +69,7 @@ public class AnnoncesAdminControler {
 	@RequestMapping("/admin/annoncesRefuse")
 	String annoncesRefuseAdminPage(Model model) {
 
-		model.addAttribute("liste", afficheAdminAnnonce("refuse"));
+		model.addAttribute("liste",anserv. afficheAdminAnnonce("refuse"));
 
 		return "admin/annoncesRefuse";
 	}
@@ -75,47 +78,11 @@ public class AnnoncesAdminControler {
 	public String deleteAnnonceAdmin(@PathVariable(name = "annonce_id") long id,
 			final RedirectAttributes redirectAttributes) {
 		Annonce an = anDAO.findByAnnonce_Id(id);
-            anDAO.delete(an);
-            redirectAttributes.addFlashAttribute("msgDelete",
-    				" L'annonce a été supprimmée avec succées");
+		anDAO.delete(an);
+		redirectAttributes.addFlashAttribute("msgDelete", " L'annonce a été supprimmée avec succées");
 		return "redirect:/admin/annoncesRefuse";
 	}
 
-	List<ShowToAdminAnnonce> afficheAdminAnnonce(String s) {
-
-		List<ShowToAdminAnnonce> adminAnnonces = new ArrayList<ShowToAdminAnnonce>();
-		List<Annonce> annonces = null;
-
-		if (s.equals("a traiter")) {
-			annonces = anDAO.AnnoncesATraiter();
-
-		} else if (s.equals("valide")) {
-			annonces = anDAO.AnnoncesValide();
-		} else if (s.equals("refuse")) {
-			annonces = anDAO.AnnoncesRefuse();
-		}
-
-		for (Annonce annonce : annonces) {
-			Utilisateur u = annonce.getUtilisateur();
-
-			ShowToAdminAnnonce adminAnnonce = new ShowToAdminAnnonce();
-			try {
-				annonce.setBase64Image(Base64.getEncoder().encodeToString(annonce.getPhoto()));
-			} catch (Exception e) {
-
-				e.printStackTrace();
-			}
-			adminAnnonce.setAnnonce(annonce);
-			adminAnnonce.setNom(u.getNom());
-			adminAnnonce.setPrenom(u.getPrenom());
-			adminAnnonce.setEmail(u.getEmail());
-			adminAnnonce.setNumero_telephone(u.getNumero_telephone());
-			adminAnnonce.setVille(u.getVille());
-			adminAnnonces.add(adminAnnonce);
-
-		}
-		return adminAnnonces;
-
-	}
+	
 
 }
